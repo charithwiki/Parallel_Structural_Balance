@@ -36,14 +36,16 @@ public class NaiveTriangleCounting {
     public static void main(String[] args) throws Exception {
 
 
-        GraphGenerator generator = new SimpleGraphGenerator("test.txt");
+        GraphGenerator generator = new SimpleGraphGenerator("/home/charith/Downloads/Email-Enron.txt");
 
         generator.initialize();
 
+        long startTime = System.currentTimeMillis();
+
         Edge e = generator.nextEdge();
-
+        int edgeCount = 0;
         while (e != null) {
-
+            edgeCount++;
             if(edgeSet.contains(e)) {
                 e = generator.nextEdge();
                 continue;
@@ -61,7 +63,7 @@ public class NaiveTriangleCounting {
                         if (!triangles.contains(t)) {
                             triangles.add(t);
                             count++;
-                            System.out.println(" Triangle Count: " + count);
+
                         }
 
                     }
@@ -102,7 +104,14 @@ public class NaiveTriangleCounting {
         }
 
 
+        long endTime = System.currentTimeMillis();
 
+
+        System.out.println(" Time Spent(ms) : " + (endTime - startTime));
+
+        System.out.println("Rate (edges/sec):" + (double)(edgeCount*1000)/(double)(endTime - startTime));
+
+        System.out.println(" Triangle Count: " + count);
 
 
     }
