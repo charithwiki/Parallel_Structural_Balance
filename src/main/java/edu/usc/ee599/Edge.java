@@ -22,11 +22,31 @@ public class Edge {
     int source;
     int sink;
 
+    int sign;
+
+    int operation;
+
+    public static final int PLUS=1;
+    public static final int MINUS=-1;
+
+
+    public static final int ADD=2;
+
+    public static final int REMOVE=-2;
+
     boolean directed;
 
     public Edge(int source, int sink, boolean directed) {
         this.source = source;
         this.sink = sink;
+        this.directed = directed;
+    }
+
+    public Edge(int source, int sink, int sign, int operation, boolean directed) {
+        this.source = source;
+        this.sink = sink;
+        this.sign = sign;
+        this.operation = operation;
         this.directed = directed;
     }
 
