@@ -52,8 +52,7 @@ public class GraphStreamGenerator {
 
         while (edgeIterator.hasNext()) {
             org.graphstream.graph.Edge e = (org.graphstream.graph.Edge)edgeIterator.next();
-            writer.println("" + e.getSourceNode() + ","  + e.getTargetNode());
-
+            writer.println("" + e.getSourceNode() + ","  + e.getTargetNode() + "," + (Math.random() > 0.4?1:-1));
         }
         writer.flush();
         writer.close();
