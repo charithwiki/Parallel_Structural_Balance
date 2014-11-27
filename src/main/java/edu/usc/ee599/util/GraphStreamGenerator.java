@@ -15,14 +15,12 @@
  */
 package edu.usc.ee599.util;
 
-import edu.usc.ee599.Edge;
 import org.graphstream.algorithm.generator.BarabasiAlbertGenerator;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.implementations.SingleGraph;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-import java.io.ObjectInputStream;
 import java.io.PrintWriter;
 import java.util.Iterator;
 
