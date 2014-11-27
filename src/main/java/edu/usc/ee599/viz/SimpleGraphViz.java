@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.package edu.usc.goffish.gopher.sample;
  */
-package edu.usc.ee599.util;
+package edu.usc.ee599.viz;
 
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
@@ -49,12 +49,14 @@ public class SimpleGraphViz {
 
             Thread.sleep(300);
 
-            if("1".equals(parts[2]))
+            if("1".equals(parts[2])) {
                 graph.addEdge(parts[0] + parts[1], parts[0], parts[1]).
                         addAttribute("ui.style", "fill-color: rgb(0,100,255);");
-            else
+            } else {
                 graph.addEdge(parts[0] + parts[1], parts[0], parts[1]).
                         addAttribute("ui.style", "fill-color: rgb(255,100,0);");
+            }
+
             line = reader.readLine();
         }
 
