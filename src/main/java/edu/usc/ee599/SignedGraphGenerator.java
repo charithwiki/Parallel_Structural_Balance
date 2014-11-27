@@ -42,7 +42,7 @@ public class SignedGraphGenerator implements GraphGenerator {
 
             if(tokens.length ==2) {
 
-            }else if(tokens.length == 5) {
+            }else if(tokens.length >= 4) {
                 Edge e = new Edge(Integer.parseInt(tokens[0]), Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2]),"a".equals(tokens[3])?Edge.ADD:"u".equals(tokens[3])?Edge.UPDATE:Edge.REMOVE,false);
                 edges.add(e);
             } else {

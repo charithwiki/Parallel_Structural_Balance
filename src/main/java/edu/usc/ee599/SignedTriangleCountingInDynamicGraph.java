@@ -31,7 +31,7 @@ public class SignedTriangleCountingInDynamicGraph {
     public static void main(String[] args) throws Exception {
 
 
-        GraphGenerator generator = new SignedGraphGenerator("/home/charith/Downloads/testfile.csv");
+        GraphGenerator generator = new SignedGraphGenerator("rfa_all.csv");
 
         generator.initialize();
 
@@ -68,7 +68,7 @@ public class SignedTriangleCountingInDynamicGraph {
                                 Edge e1 = edges.get("" + e.source + "-" + common);
 
                                 if (e1 == null) {
-                                    e1 = edges.get("" + common + "-" + e.sink);
+                                    e1 = edges.get("" + common + "-" + e.source);
                                 }
 
 
@@ -79,7 +79,10 @@ public class SignedTriangleCountingInDynamicGraph {
                                 }
 
 
+
                                 int switchKey = e.sign  +  e1.sign + e2.sign;
+
+
 
                                 switch(switchKey) {
 
@@ -199,10 +202,19 @@ public class SignedTriangleCountingInDynamicGraph {
                     continue;
                 }
 
-                if (edgeMap.get(e.source) != null && edgeMap.get(e.sink) != null) {
+                Set<Integer> sourceSet = edgeMap.get(e.source);
+                Set<Integer> sinkSet = edgeMap.get(e.sink);
 
 
-                    Sets.SetView<Integer> setView = Sets.intersection(edgeMap.get(e.source), edgeMap.get(e.sink));
+                if (sourceSet != null && sinkSet != null) {
+
+
+                    Sets.SetView<Integer> setView = null;
+                    if(sourceSet.size() <= sourceSet.size()) {
+                           setView= Sets.intersection(sourceSet, sinkSet);
+                    } else {
+                        setView = Sets.intersection(sinkSet,sourceSet);
+                    }
 
                     for (int common : setView) {
 
