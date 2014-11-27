@@ -16,7 +16,7 @@ public class SignedGraphGenerator implements GraphGenerator {
 
     private ArrayList<Edge> edges = new ArrayList<Edge>(1000);
 
-    private static final Pattern SEPARATOR = Pattern.compile("[\t ]");
+    private static final Pattern SEPARATOR = Pattern.compile(",");
 
     private int index=0;
 
@@ -42,8 +42,8 @@ public class SignedGraphGenerator implements GraphGenerator {
 
             if(tokens.length ==2) {
 
-            }else if(tokens.length == 4) {
-                Edge e = new Edge(Integer.parseInt(tokens[0]), Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2]), "add".equals(tokens[3])?Edge.ADD:Edge.REMOVE,false);
+            }else if(tokens.length == 5) {
+                Edge e = new Edge(Integer.parseInt(tokens[0]), Integer.parseInt(tokens[1]), Integer.parseInt(tokens[2]), "a".equals(tokens[3])?Edge.ADD:Edge.REMOVE,false);
                 edges.add(e);
             } else {
                 throw new RuntimeException("Unexpected file format");
@@ -54,6 +54,10 @@ public class SignedGraphGenerator implements GraphGenerator {
     }
 
     public Edge nextEdge() {
-        return null;
+        if(index > (edges.size() -1)) {
+            return null;
+        }
+
+        return edges.get(index++);
     }
 }

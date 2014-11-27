@@ -64,4 +64,15 @@ public class Edge {
         }
 
     }
+
+    @Override
+    public String toString() {
+        return "Edge{" +
+                "source=" + source +
+                ", sink=" + sink +
+                ", sign=" + sign +
+                ", operation=" + operation +
+                ", directed=" + directed +
+                '}';
+    }
 }
