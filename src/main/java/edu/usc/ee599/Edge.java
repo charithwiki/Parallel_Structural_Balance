@@ -34,6 +34,9 @@ public class Edge {
 
     public static final int REMOVE=-2;
 
+    public static final int UPDATE= 0;
+
+
     boolean directed;
 
     public Edge(int source, int sink, boolean directed) {
