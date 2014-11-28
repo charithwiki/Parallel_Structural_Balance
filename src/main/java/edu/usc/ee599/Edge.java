@@ -78,4 +78,44 @@ public class Edge {
                 ", directed=" + directed +
                 '}';
     }
+
+	public int getSource() {
+		return source;
+	}
+
+	public int getSink() {
+		return sink;
+	}
+
+	public int getSign() {
+		return sign;
+	}
+
+	public int getOperation() {
+		return operation;
+	}
+
+	public boolean isDirected() {
+		return directed;
+	}
+
+	public void setSink(int sink) {
+		this.sink = sink;
+	}
+
+	public void setSign(int sign) {
+		this.sign = sign;
+	}
+
+	public void setOperation(int operation) {
+		this.operation = operation;
+	}
+
+	public void setDirected(boolean directed) {
+		this.directed = directed;
+	}
+	
+	
+    
+    
 }
