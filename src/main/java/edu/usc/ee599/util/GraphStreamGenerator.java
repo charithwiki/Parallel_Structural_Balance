@@ -15,22 +15,17 @@
  */
 package edu.usc.ee599.util;
 
+import edu.usc.ee599.Edge;
 import org.graphstream.algorithm.generator.BarabasiAlbertGenerator;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.implementations.SingleGraph;
 
-import edu.usc.ee599.Edge;
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-import java.io.FileReader;
 import java.io.PrintWriter;
-import java.util.Iterator;
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import java.util.StringTokenizer;
 import java.util.Random;
 /**
  * Created by Charith Wickramaarachchi on 11/27/14.
