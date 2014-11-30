@@ -19,12 +19,12 @@ package edu.usc.ee599;
  * Created by Charith Wickramaarachchi on 11/16/14.
  */
 public class Edge {
-    int source;
-    int sink;
+    public int source;
+    public int sink;
 
-    int sign;
+    public int sign;
 
-    int operation;
+    public int operation;
 
     public static final int PLUS=1;
     public static final int MINUS=-1;

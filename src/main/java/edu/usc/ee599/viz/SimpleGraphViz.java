@@ -15,6 +15,7 @@
  */
 package edu.usc.ee599.viz;
 
+import edu.usc.ee599.Edge;
 import org.graphstream.graph.Graph;
 import org.graphstream.graph.Node;
 import org.graphstream.graph.implementations.SingleGraph;
@@ -37,13 +38,19 @@ public class SimpleGraphViz {
         graph.display();
 
 
+        TriangleCountView view = new TriangleCountView();
+        view.show(view);
+
+        BalancedTrangleCountWithViz balancedTrangleCountWithViz = new BalancedTrangleCountWithViz(view);
+
         //System.out.println("hello");
         String line = reader.readLine();
 
         while (line != null) {
 
             String[] parts = line.split(",");
-
+            Edge e = new Edge(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]), Integer.parseInt(parts[2]),"a".equals(parts[3])?Edge.ADD:"u".equals(parts[3])?Edge.UPDATE:Edge.REMOVE,false);
+            balancedTrangleCountWithViz.calculate(e);
 
             Thread.sleep(300);
             if ("a".equals(parts[3])) {
