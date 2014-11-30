@@ -24,9 +24,9 @@ public class SignCSVToEdgeList {
 
     public static void main(String[] args) throws Exception{
 
-        BufferedReader reader = new BufferedReader(new FileReader("rfa_all.csv"));
+        BufferedReader reader = new BufferedReader(new FileReader("soc-sign-Slashdot090221.csv"));
 
-        PrintWriter writer = new PrintWriter(new BufferedOutputStream(new FileOutputStream("rfa_all_el.txt")));
+        PrintWriter writer = new PrintWriter(new BufferedOutputStream(new FileOutputStream("soc-sign-Slashdot090221_el.txt")));
 
 
         String line = reader.readLine();

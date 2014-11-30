@@ -30,9 +30,9 @@ public class EpinionsToSignNetwork {
     public static void main(String[] args) throws Exception{
 
 
-        BufferedReader reader = new BufferedReader(new FileReader("/home/charith/Downloads/soc-sign-epinions.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader("/home/charith/Downloads/soc-sign-Slashdot081106.txt"));
 
-        PrintWriter writer = new PrintWriter(new BufferedOutputStream(new FileOutputStream("soc-sign-epinions.csv")));
+        PrintWriter writer = new PrintWriter(new BufferedOutputStream(new FileOutputStream("soc-sign-Slashdot081106.csv")));
 
 
         String line = reader.readLine();

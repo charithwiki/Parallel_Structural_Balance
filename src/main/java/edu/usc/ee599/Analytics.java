@@ -15,25 +15,16 @@
  */
 package edu.usc.ee599;
 
-import java.io.File;
-
 /**
- * Created by Charith Wickramaarachchi on 11/29/14.
+ * Created by Charith Wickramaarachchi on 11/30/14.
  */
-public class CommunityAnalytics {
+public class Analytics {
 
-    public static void main(String[] args) throws  Exception {
-
-        File dir = new File("dir4");
-
-
-        File[] files = dir.listFiles();
-
-
-        for(File file : files) {
-            SignedTriangleCountingInDynamicGraph.run(file.getPath(),"results/" + file.getName());
-        }
-
-
+    public static void main(String[] args) throws Exception{
+        SignedTriangleCountingInDynamicGraph.run("rfa_all.csv","rfa_all_results.txt");
+        SignedTriangleCountingInDynamicGraph.run("soc-sign-epinions.csv","soc-sign-epinions_results.txt");
+        SignedTriangleCountingInDynamicGraph.run("soc-sign-Slashdot081106.csv","soc-sign-Slashdot081106_results.txt");
+        SignedTriangleCountingInDynamicGraph.run("soc-sign-Slashdot090216.csv","soc-sign-Slashdot090216_results.txt");
+        SignedTriangleCountingInDynamicGraph.run("soc-sign-Slashdot090221.csv","soc-sign-Slashdot090221_results.txt");
     }
 }

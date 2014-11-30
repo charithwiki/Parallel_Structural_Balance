@@ -27,8 +27,8 @@ public class BreakToCommunity {
 
     public static void main(String[] args) throws Exception{
 
-        BufferedReader mReader = new BufferedReader(new FileReader("/home/charith/Downloads/communities1.txt"));
-        BufferedReader reader = new BufferedReader(new FileReader("soc-sign-epinions.csv"));
+        BufferedReader mReader = new BufferedReader(new FileReader("/home/charith/Downloads/communities3.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader("soc-sign-Slashdot090216.csv"));
 
         Map<Integer,Integer> map = new HashMap<Integer,Integer>();
 
@@ -64,7 +64,7 @@ public class BreakToCommunity {
                 if(writerHashMap.containsKey(map.get(s))) {
                     writerHashMap.get(map.get(s)).println(line);
                 } else {
-                    PrintWriter writer = new PrintWriter(new BufferedOutputStream(new FileOutputStream("dir2/comm_" +
+                    PrintWriter writer = new PrintWriter(new BufferedOutputStream(new FileOutputStream("dir4/comm_" +
                             map.get(s)+ ".csv")));
                     writerHashMap.put(map.get(s),writer);
                     writer.println(line);
