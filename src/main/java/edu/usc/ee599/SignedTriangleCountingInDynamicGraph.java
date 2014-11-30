@@ -2,6 +2,8 @@ package edu.usc.ee599;
 
 import com.google.common.collect.Sets;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -28,10 +30,10 @@ public class SignedTriangleCountingInDynamicGraph {
 
 
 
-    public static void main(String[] args) throws Exception {
+    public static void run(String filePath,String outputFilePath) throws Exception {
 
 
-        GraphGenerator generator = new SignedGraphGenerator("rfa_all.csv");
+        GraphGenerator generator = new SignedGraphGenerator(filePath);
 
         generator.initialize();
 
@@ -291,15 +293,30 @@ public class SignedTriangleCountingInDynamicGraph {
         long endTime = System.currentTimeMillis();
 
 
-        System.out.println(" Time Spent(ms) : " + (endTime - startTime));
+//        System.out.println(" Time Spent(ms) : " + (endTime - startTime));
+//
+//        System.out.println("Rate (edges/sec):" + (double) (edgeCount * 1000) / (double) (endTime - startTime));
+//
+//        System.out.println("Total Triangle Count: " + (allNegT.size() + allPlusT.size() + twoPlusT.size() + onePlusT.size()));
 
-        System.out.println("Rate (edges/sec):" + (double) (edgeCount * 1000) / (double) (endTime - startTime));
 
-        System.out.println("Total Triangle Count: " + (allNegT.size() + allPlusT.size() + twoPlusT.size() + onePlusT.size()));
+        PrintWriter writer = new PrintWriter(new FileWriter(outputFilePath));
+
 
         System.out.println("Balanced Triangles: " + (allNegT.size() + allPlusT.size() + onePlusT.size()));
 
-        System.out.println("Unbalanced Triangles: " + (twoPlusT.size()));
+        writer.println("B," + (allNegT.size() + allPlusT.size() + onePlusT.size()));
+
+        System.out.println("Unbalanced Triangles:" + (twoPlusT.size()));
+
+        writer.println("U," + (twoPlusT.size()));
+
+        writer.flush();
+        writer.close();
 
     }
+
+
+
+
 }

@@ -143,7 +143,7 @@ public class GraphStreamGenerator {
 
         List<Edge> edgeList = new ArrayList<Edge>(110);
         
-        PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter("sample-graph.csv")));
+        PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter("sample-graph_demo.csv")));
 
         gen.addSink(graph);
         gen.begin();

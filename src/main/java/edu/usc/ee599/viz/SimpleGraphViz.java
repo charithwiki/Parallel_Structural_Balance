@@ -29,9 +29,7 @@ public class SimpleGraphViz {
 
     public static void main(String[] args) throws Exception{
 
-        BufferedReader reader = new BufferedReader(new FileReader("sample-graph.csv"));
-
-
+        BufferedReader reader = new BufferedReader(new FileReader("sample-graph_demo.csv"));
         Graph graph = new SingleGraph("tutorial 1");
 
         graph.setStrict(false);
@@ -39,7 +37,7 @@ public class SimpleGraphViz {
         graph.display();
 
 
-        System.out.println("hello");
+        //System.out.println("hello");
         String line = reader.readLine();
 
         while (line != null) {
@@ -48,21 +46,29 @@ public class SimpleGraphViz {
 
 
             Thread.sleep(300);
+            if ("a".equals(parts[3])) {
+                if ("1".equals(parts[2])) {
+                    graph.addEdge(parts[0] + parts[1], parts[0], parts[1]).
+                            addAttribute("ui.style", "fill-color: rgb(0,100,255);");
+                } else {
+                    graph.addEdge(parts[0] + parts[1], parts[0], parts[1]).
+                            addAttribute("ui.style", "fill-color: rgb(255,100,0);");
+                }
+            } else if("d".equals(parts[3])) {
+                graph.removeEdge(parts[0]+parts[1]);
+            } else if("u".equals(parts[3])) {
 
-            if("1".equals(parts[2])) {
-                graph.addEdge(parts[0] + parts[1], parts[0], parts[1]).
-                        addAttribute("ui.style", "fill-color: rgb(0,100,255);");
-            } else {
-                graph.addEdge(parts[0] + parts[1], parts[0], parts[1]).
-                        addAttribute("ui.style", "fill-color: rgb(255,100,0);");
+                if ("1".equals(parts[2])) {
+                    graph.getEdge(parts[0]+parts[1]).
+                            addAttribute("ui.style", "fill-color: rgb(0,100,255);");
+                } else {
+                    graph.getEdge(parts[0]+parts[1]).
+                            addAttribute("ui.style", "fill-color: rgb(255,100,0);");
+                }
             }
+
 
             line = reader.readLine();
         }
-
-
-
-
-
     }
 }
